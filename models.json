@@ -18,15 +18,23 @@
     "access": "open"
   },
   {
-    "id": "eleven-sarah",
+    "id": "eleven-hoon",
+    "access": "closed",
     "name": "ElevenLabs Multilingual v2",
-    "voice": "Sarah · 영어(미국) 프리셋",
-    "device": "ElevenLabs API · 요청부터 전체 MP3 수신까지",
-    "url": "https://elevenlabs.io/",
+    "voice": "Hoon · 한국어 표준 · 남성 내레이터",
+    "device": "ElevenCreative 웹 · 합성 시간 미측정",
+    "url": "https://elevenlabs.io/app/voice-library?voiceId=86GErZIiGJsPO3g7QNxZ",
     "license": "ElevenLabs Free · 비상업 · 출처 표기",
-    "revision": "eleven_multilingual_v2 · 2026-11-05 · EXAVITQu4vr4xnSDxMaL",
-    "publication_basis": "직접 생성한 원고·premade 보이스. 비상업 연구 공개 및 elevenlabs.io 출처 표기. https://elevenlabs.io/terms-of-use",
-    "access": "closed"
+    "revision": "eleven_multilingual_v2 · Hoon - Calm Korean Narrator · 86GErZIiGJsPO3g7QNxZ",
+    "publication_basis": "직접 작성한 원문으로 생성. 비상업 연구 및 elevenlabs.io 출처 표기.",
+    "settings": {
+      "language": "ko",
+      "speed": 1.0,
+      "stability": 0.5,
+      "similarity": 0.75,
+      "style": 0,
+      "speaker_boost": true
+    }
   },
   {
     "id": "qwen3-tts-1p7b",

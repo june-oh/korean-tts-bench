@@ -1,0 +1,82 @@
+{
+  "P01": {
+    "input_lufs": -21.74,
+    "input_true_peak_db": -2.11,
+    "gain_db": 0.11
+  },
+  "P02": {
+    "input_lufs": -19.04,
+    "input_true_peak_db": -1.73,
+    "gain_db": -0.27
+  },
+  "P03": {
+    "input_lufs": -22.45,
+    "input_true_peak_db": -2.82,
+    "gain_db": 0.82
+  },
+  "P04": {
+    "input_lufs": -20.73,
+    "input_true_peak_db": -2.88,
+    "gain_db": 0.88
+  },
+  "P05": {
+    "input_lufs": -21.33,
+    "input_true_peak_db": -3.03,
+    "gain_db": 1.03
+  },
+  "P06": {
+    "input_lufs": -20.28,
+    "input_true_peak_db": -1.9,
+    "gain_db": -0.1
+  },
+  "P07": {
+    "input_lufs": -21.72,
+    "input_true_peak_db": -5.21,
+    "gain_db": 3.21
+  },
+  "P08": {
+    "input_lufs": -22.02,
+    "input_true_peak_db": -2.18,
+    "gain_db": 0.18
+  },
+  "P09": {
+    "input_lufs": -20.19,
+    "input_true_peak_db": -1.74,
+    "gain_db": -0.26
+  },
+  "P10": {
+    "input_lufs": -19.83,
+    "input_true_peak_db": -1.81,
+    "gain_db": -0.19
+  },
+  "P11": {
+    "input_lufs": -18.55,
+    "input_true_peak_db": -1.14,
+    "gain_db": -0.86
+  },
+  "P12": {
+    "input_lufs": -22.7,
+    "input_true_peak_db": -2.43,
+    "gain_db": 0.43
+  },
+  "P13": {
+    "input_lufs": -21.3,
+    "input_true_peak_db": -2.04,
+    "gain_db": 0.04
+  },
+  "P14": {
+    "input_lufs": -22.37,
+    "input_true_peak_db": -4.74,
+    "gain_db": 2.74
+  },
+  "P15": {
+    "input_lufs": -21.09,
+    "input_true_peak_db": -2.04,
+    "gain_db": 0.04
+  },
+  "P16": {
+    "input_lufs": -22.47,
+    "input_true_peak_db": -2.9,
+    "gain_db": 0.9
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "revision": "eleven_multilingual_v2 \u00b7 Hoon - Calm Korean Narrator \u00b7 86GErZIiGJsPO3g7QNxZ",
+  "rows": [
+    {
+      "id": "P01",
+      "rate": 44100,
+      "duration": 4.0751020408163265,
+      "seconds": []
+    },
+    {
+      "id": "P02",
+      "rate": 44100,
+      "duration": 3.1608163265306124,
+      "seconds": []
+    },
+    {
+      "id": "P03",
+      "rate": 44100,
+      "duration": 3.84,
+      "seconds": []
+    },
+    {
+      "id": "P04",
+      "rate": 44100,
+      "duration": 4.2057142857142855,
+      "seconds": []
+    },
+    {
+      "id": "P05",
+      "rate": 44100,
+      "duration": 2.690612244897959,
+      "seconds": []
+    },
+    {
+      "id": "P06",
+      "rate": 44100,
+      "duration": 3.3436734693877552,
+      "seconds": []
+    },
+    {
+      "id": "P07",
+      "rate": 44100,
+      "duration": 3.0563265306122447,
+      "seconds": []
+    },
+    {
+      "id": "P08",
+      "rate": 44100,
+      "duration": 3.7877551020408164,
+      "seconds": []
+    },
+    {
+      "id": "P09",
+      "rate": 44100,
+      "duration": 3.944489795918367,
+      "seconds": []
+    },
+    {
+      "id": "P10",
+      "rate": 44100,
+      "duration": 3.84,
+      "seconds": []
+    },
+    {
+      "id": "P11",
+      "rate": 44100,
+      "duration": 4.6236734693877555,
+      "seconds": []
+    },
+    {
+      "id": "P12",
+      "rate": 44100,
+      "duration": 3.369795918367347,
+      "seconds": []
+    },
+    {
+      "id": "P13",
+      "rate": 44100,
+      "duration": 3.526530612244898,
+      "seconds": []
+    },
+    {
+      "id": "P14",
+      "rate": 44100,
+      "duration": 4.858775510204081,
+      "seconds": []
+    },
+    {
+      "id": "P15",
+      "rate": 44100,
+      "duration": 14.524081632653061,
+      "seconds": []
+    },
+    {
+      "id": "P16",
+      "rate": 44100,
+      "duration": 3.239183673469388,
+      "seconds": []
+    }
+  ]
+}

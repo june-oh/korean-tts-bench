@@ -16,15 +16,15 @@
 |---|---|---|
 | Supertone Supertonic 3 · F1 | ONNX CPU, 8 steps, speed 1.0 | [JSON](audio/supertonic3/measurements.json) |
 | Meta MMS-TTS Korean · 단일 화자 | Transformers VITS, uroman, PyTorch CPU 4 threads | [JSON](audio/mms/measurements.json) |
-| ElevenLabs Multilingual v2 · Sarah | API 1회/문장, 요청부터 MP3 전체 수신까지. WAV 디코딩 제외 | [JSON](audio/eleven-sarah/measurements.json) |
+| ElevenLabs Multilingual v2 · Hoon | 한국어 표준 화자 · 웹 합성 · 언어 한국어 · 시간 미측정 | [JSON](audio/eleven-hoon/measurements.json) |
 
-ElevenLabs 음성은 **elevenlabs.io**에서 Free 플랜으로 직접 생성한 비상업 연구 샘플이다. 16문장 541자 1회씩, 공시 단가 기준 약 $0.043 상당이며 별도 결제는 진행하지 않았다. 로컬 시간과 달리 API 수치에 네트워크 왕복과 서버 대기가 포함된다.
+ElevenLabs 음성은 **elevenlabs.io**에서 Free 플랜으로 직접 생성한 비상업 연구 샘플이다. 16문장 모두 Hoon - Calm Korean Narrator (voice ID 86GErZIiGJsPO3g7QNxZ)로 생성했다. 별도 결제 없이 한국어 언어 설정을 사용했다. 예전 영어 화자 Sarah의 속도는 Hoon의 그래프에서 제외했다.
 
 [원문과 청취 포인트](prompts.json) · [모델 사양](models.json) · [합성 스크립트](scripts/generate.py)
 
 ## 문장별 성능 그래프
 
-[그래프 보기](https://june-oh.github.io/korean-tts-bench/#timing) · [측정 CSV](figures/timings.csv). 저장소 루트에서 matplotlib와 numpy가 설치된 Python으로 `python scripts/plot_timings.py`를 실행한다. 한 점은 게시한 첫 시도의 측정값이고 마름모는 성공 문장의 단순 산술평균이다. 범위는 전체 최솟값~최댓값이다. RTF는 각 문장의 생성 시간을 그 문장의 원본 WAV 길이로 나눈 뒤 평균한다. CPU·GPU·네트워크 API가 섞여 있으며, 초회 모델 로드와 MP3 변환은 제외했다.
+[그래프 보기](https://june-oh.github.io/korean-tts-bench/#timing) · [측정 CSV](figures/timings.csv). 저장소 루트에서 matplotlib와 numpy가 설치된 Python으로 `python scripts/plot_timings.py`를 실행한다. 한 점은 게시한 첫 시도의 측정값이고 마름모는 성공 문장의 단순 산술평균이다. 범위는 전체 최솟값~최댓값이다. RTF는 각 문장의 생성 시간을 그 문장의 원본 WAV 길이로 나눈 뒤 평균한다. CPU·GPU 장비가 섞여 있으며, 초회 모델 로드와 MP3 변환은 제외했다.
 
 ## 추가한 상업 이용 후보
 
@@ -48,7 +48,7 @@ MeloTTS는 공식 코드 커밋 `209145371cff8fc3bd60d7be902ea69cbdb7965a`에 [�
 | GitHub Pages | 공개 저장소·정적 호스팅 $0. 사이트 최대 1GB, 월 전송량 소프트 한도 100GB | 재생할 때 TTS를 다시 호출하지 않는다. [GitHub 제한](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits) |
 | Supertonic 3 | 기존 CPU 사용, 외부 추론 요금 $0. 전기·장비비 별도 | OpenRAIL-M의 용도 제한과 합성물 표시 조건 적용. 제공자는 산출물에 권리를 주장하지 않으며 이용자가 책임진다. [라이선스](https://huggingface.co/supertone-oss-archive/supertonic-3/blob/main/LICENSE) |
 | Meta MMS Korean | 기존 CPU 사용, 외부 추론 요금 $0 | Meta의 CC BY-NC 4.0 체크포인트로 비상업 연구용 생성. 가중치 라이선스를 모든 산출물에 포괄 재허락하지 않는다. [모델 카드](https://huggingface.co/facebook/mms-tts-kor) |
-| ElevenLabs | 541자 × 3회 = 1,053자. $0.08/1천 자 모델은 약 $0.130, $0.04 모델은 약 $0.065의 사용량 상당액. 최소 결제·구독·세금 별도 | 직접 만든 음성은 플랜·보이스별 조건 확인. 무료는 비상업·출처 표시, 상업적 사용은 유료 조건. 다운로드 산출물의 외부 사용과 비교 벤치마크 허용 여부는 분리 검토. 계정별 계약 우선. [요금](https://elevenlabs.io/pricing/api) · [약관](https://elevenlabs.io/terms-of-use) · [개별 약관](https://elevenlabs.io/service-specific-terms) |
+| ElevenLabs | 541자 × 3회 = 1,623자. $0.08/1천 자 모델은 약 $0.130, $0.04 모델은 약 $0.065의 사용량 상당액. 최소 결제·구독·세금 별도 | 직접 만든 음성은 플랜·보이스별 조건 확인. 무료는 비상업·출처 표시, 상업적 사용은 유료 조건. 다운로드 산출물의 외부 사용과 비교 벤치마크 허용 여부는 분리 검토. 계정별 계약 우선. [요금](https://elevenlabs.io/pricing/api) · [약관](https://elevenlabs.io/terms-of-use) · [개별 약관](https://elevenlabs.io/service-specific-terms) |
 | Typecast SSFM | 같은 3회 시험 1,623크레딧. Lite 월 $15/20만 크레딧을 전량 소진한다고 보면 약 $0.122 상당. **허가 전 실행 보류** | API 약관에서 벤치마킹·경쟁 목적 성능/기능 모니터링을 제한. 유료 구독만으로 해결되지 않으므로 이 프로젝트의 음원 및 측정 결과 공개까지 서면 허가 후 추가. [API 약관 제3조 제한 사항](https://help.typecast.ai/en/articles/11872662-typecast-api-terms-of-use) · [요금](https://typecast.ai/pricing/api/) |
 | Google Cloud TTS | 모델별 문자·토큰 단가, 무료 사용량·리전 확인 후 계산 | 서비스 약관 General Service Terms §7에서 고객 직접 시험, 재현 정보 제공, Google의 상응 시험·공개 허용 조건을 규정한다. 적용 계약·조항 확인 후 추가. [약관](https://cloud.google.com/terms/service-terms) · [요금](https://cloud.google.com/text-to-speech/pricing) |
 
