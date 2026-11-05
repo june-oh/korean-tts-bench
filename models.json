@@ -1,0 +1,4 @@
+[
+ {"id":"supertonic3","name":"Supertonic 3","voice":"F1 · 8 steps · speed 1.0","device":"Apple M1 CPU · ONNX Runtime","url":"https://huggingface.co/supertone-oss-archive/supertonic-3","license":"OpenRAIL-M"},
+ {"id":"mms","name":"MMS Korean","voice":"kor · 기본 단일 화자","device":"Apple M1 CPU · PyTorch 4 threads","url":"https://huggingface.co/facebook/mms-tts-kor","license":"CC BY-NC 4.0"}
+]
