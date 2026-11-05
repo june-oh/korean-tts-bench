@@ -2,16 +2,23 @@
 
 [공개 데모에서 듣기](https://june-oh.github.io/korean-tts-bench/)
 
-12개 창작 문장으로 수사·날짜·금액·분수·받침·자모·영문·반복·억양을 비교한다. 무료 비상업 연구 데모이며 모든 음원은 AI 합성이다. 공개 원고는 총 351자(공백·문장부호 포함, 유니코드 코드포인트 기준). 개인 블라인드 모드는 현재 문장의 모델 순서를 무작위로 바꾸고 이름과 수치를 숨긴다. 청취자 투표, MOS, 인구집단 선호도 통계는 수집하지 않는다.
+16개 창작 문장으로 수사·날짜·금액·분수·받침·자모·영문·반복·억양을 비교한다. 무료 비상업 연구 데모이며 모든 음원은 AI 합성이다. 공개 원고는 총 541자(공백·문장부호 포함, 유니코드 코드포인트 기준). 개인 블라인드 모드는 현재 문장의 모델 순서를 무작위로 바꾸고 이름과 수치를 숨긴다. 청취자 투표, MOS, 인구집단 선호도 통계는 수집하지 않는다.
+
+## 문장 선정
+
+[KO-TTS Arena의 공개 문장](https://huggingface.co/spaces/channelcorp/KO-TTS-Arena/blob/30278887183752f87eae32811a807651845f886c/ko_prompts.json)에서 상품 코드·가격, 주문번호, 전화, 영문 혼용 안내 유형을 확인했다. [CoreaSpeech 논문](https://openreview.net/forum?id=8nHq0IIwpd)과 [저자 샘플](https://coreaspeech.github.io/demo/)에서 숫자·영문 정규화 및 numeric 시험셋을 검토했다. 기존 12문장을 이 기준으로 분류하고 번호·수량 대조, 편명, 긴 시각 변경 안내, 한글 정규화 대조군을 새로 작성했다. 원본 데이터셋 문장을 복제하거나 이 데모에서 원 논문의 성능을 재현했다고 주장하지 않는다.
 
 ## 측정 방법
 
-2026-11-05, Apple M1 CPU. 모델을 메모리에 올리고 별도 문장으로 한 번 예열했다. 원문을 수정하거나 숫자를 읽는 방법을 미리 써 주지 않았다. 각 모델이 제공하는 전처리부터 전체 파형을 얻을 때까지 단조 시계로 3회 독립 측정했다. 동시 요청 1, 두 모델을 순차 실행했다. 모델 로딩·WAV 저장·브라우저 다운로드 시간은 제외했다. 사이트에는 각 문장의 **첫 번째 시도 음원 및 해당 시도 시간**을 표시한다. RTF는 그 시간 ÷ 해당 WAV 길이다. 서로 다른 기본 화자와 모델별 전처리도 결과에 영향을 준다. 동일 음량 후처리나 실패 샘플 재선정은 하지 않았다.
+2026-11-05, Apple M1 CPU. 모델을 메모리에 올리고 별도 문장으로 한 번 예열했다. 원문을 수정하거나 숫자를 읽는 방법을 미리 써 주지 않았다. 로컬 모델이 제공하는 전처리부터 전체 파형을 얻을 때까지 단조 시계로 3회 독립 측정했다. 동시 요청 1, 두 로컬 모델을 순차 실행했다. 로컬 모델 로딩·WAV 저장·브라우저 다운로드 시간은 제외했다. 사이트에는 각 문장의 **첫 번째 시도 음원 및 해당 시도 시간**을 표시한다. RTF는 그 시간 ÷ 해당 WAV 길이다. 서로 다른 기본 화자와 모델별 전처리도 결과에 영향을 준다. 동일 음량 후처리나 실패 샘플 재선정은 하지 않았다.
 
-| 공개 모델·화자 | 실행 조건 | 36회 원시 측정 · 체크포인트 리비전 |
+| 공개 모델·화자 | 실행 조건 | 원시 측정 · 체크포인트 리비전 |
 |---|---|---|
 | Supertone Supertonic 3 · F1 | ONNX CPU, 8 steps, speed 1.0 | [JSON](audio/supertonic3/measurements.json) |
 | Meta MMS-TTS Korean · 단일 화자 | Transformers VITS, uroman, PyTorch CPU 4 threads | [JSON](audio/mms/measurements.json) |
+| ElevenLabs Multilingual v2 · Sarah | API 1회/문장, 요청부터 MP3 전체 수신까지. WAV 디코딩 제외 | [JSON](audio/eleven-sarah/measurements.json) |
+
+ElevenLabs 음성은 **elevenlabs.io**에서 Free 플랜으로 직접 생성한 비상업 연구 샘플이다. 16문장 541자 1회씩, 공시 단가 기준 약 $0.043 상당이며 별도 결제는 진행하지 않았다. 로컬 시간과 달리 API 수치에 네트워크 왕복과 서버 대기가 포함된다.
 
 [원문과 청취 포인트](prompts.json) · [모델 사양](models.json) · [합성 스크립트](scripts/generate.py)
 
@@ -24,13 +31,13 @@
 | GitHub Pages | 공개 저장소·정적 호스팅 $0. 사이트 최대 1GB, 월 전송량 소프트 한도 100GB | 재생할 때 TTS를 다시 호출하지 않는다. [GitHub 제한](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits) |
 | Supertonic 3 | 기존 CPU 사용, 외부 추론 요금 $0. 전기·장비비 별도 | OpenRAIL-M의 용도 제한과 합성물 표시 조건 적용. 제공자는 산출물에 권리를 주장하지 않으며 이용자가 책임진다. [라이선스](https://huggingface.co/supertone-oss-archive/supertonic-3/blob/main/LICENSE) |
 | Meta MMS Korean | 기존 CPU 사용, 외부 추론 요금 $0 | Meta의 CC BY-NC 4.0 체크포인트로 비상업 연구용 생성. 가중치 라이선스를 모든 산출물에 포괄 재허락하지 않는다. [모델 카드](https://huggingface.co/facebook/mms-tts-kor) |
-| ElevenLabs | 351자 × 3회 = 1,053자. $0.08/1천 자 모델은 약 $0.084, $0.04 모델은 약 $0.042의 사용량 상당액. 최소 결제·구독·세금 별도 | 직접 만든 음성은 플랜·보이스별 조건 확인. 무료는 비상업·출처 표시, 상업적 사용은 유료 조건. 다운로드 산출물의 외부 사용과 비교 벤치마크 허용 여부는 분리 검토. 계정별 계약 우선. [요금](https://elevenlabs.io/pricing/api) · [약관](https://elevenlabs.io/terms-of-use) · [개별 약관](https://elevenlabs.io/service-specific-terms) |
-| Typecast SSFM | 같은 3회 시험 1,053크레딧. Lite 월 $15/20만 크레딧을 전량 소진한다고 보면 약 $0.079 상당. **허가 전 실행 보류** | API 약관에서 벤치마킹·경쟁 목적 성능/기능 모니터링을 제한. 유료 구독만으로 해결되지 않으므로 이 프로젝트의 음원 및 측정 결과 공개까지 서면 허가 후 추가. [API 약관 제3조 제한 사항](https://help.typecast.ai/en/articles/11872662-typecast-api-terms-of-use) · [요금](https://typecast.ai/pricing/api/) |
+| ElevenLabs | 541자 × 3회 = 1,053자. $0.08/1천 자 모델은 약 $0.130, $0.04 모델은 약 $0.065의 사용량 상당액. 최소 결제·구독·세금 별도 | 직접 만든 음성은 플랜·보이스별 조건 확인. 무료는 비상업·출처 표시, 상업적 사용은 유료 조건. 다운로드 산출물의 외부 사용과 비교 벤치마크 허용 여부는 분리 검토. 계정별 계약 우선. [요금](https://elevenlabs.io/pricing/api) · [약관](https://elevenlabs.io/terms-of-use) · [개별 약관](https://elevenlabs.io/service-specific-terms) |
+| Typecast SSFM | 같은 3회 시험 1,623크레딧. Lite 월 $15/20만 크레딧을 전량 소진한다고 보면 약 $0.122 상당. **허가 전 실행 보류** | API 약관에서 벤치마킹·경쟁 목적 성능/기능 모니터링을 제한. 유료 구독만으로 해결되지 않으므로 이 프로젝트의 음원 및 측정 결과 공개까지 서면 허가 후 추가. [API 약관 제3조 제한 사항](https://help.typecast.ai/en/articles/11872662-typecast-api-terms-of-use) · [요금](https://typecast.ai/pricing/api/) |
 | Google Cloud TTS | 모델별 문자·토큰 단가, 무료 사용량·리전 확인 후 계산 | 서비스 약관 General Service Terms §7에서 고객 직접 시험, 재현 정보 제공, Google의 상응 시험·공개 허용 조건을 규정한다. 적용 계약·조항 확인 후 추가. [약관](https://cloud.google.com/terms/service-terms) · [요금](https://cloud.google.com/text-to-speech/pricing) |
 
 ## 음원 추가하기
 
-1. [prompts.json](prompts.json)의 원문을 그대로 넣어 합성한다. 저장소 밖 별도 디렉터리에 P01.wav … P12.wav로 보관한다. 부분 제출도 가능하다. 직접 녹음·생성했는지와 공개 권한을 확인한다.
+1. [prompts.json](prompts.json)의 원문을 그대로 넣어 합성한다. 저장소 밖 별도 디렉터리에 P01.wav … P16.wav로 보관한다. 부분 제출도 가능하다. 직접 녹음·생성했는지와 공개 권한을 확인한다.
 2. 같은 디렉터리에 아래 예시의 model.json을 만들고 실제 값으로 바꾼다. times.json은 선택 사항이다. 측정 기록이 없으면 생략한다. 파일의 재생 길이로 생성 시간을 추정하지 않는다.
 3. 저장소 루트에서 아래 명령을 실행하고, 변경된 JSON과 추가 음원만 검토해 main에 커밋·푸시한다. GitHub Pages가 갱신된다.
 

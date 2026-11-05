@@ -1,4 +1,28 @@
 [
- {"id":"supertonic3","name":"Supertonic 3","voice":"F1 · 8 steps · speed 1.0","device":"Apple M1 CPU · ONNX Runtime","url":"https://huggingface.co/supertone-oss-archive/supertonic-3","license":"OpenRAIL-M"},
- {"id":"mms","name":"MMS Korean","voice":"kor · 기본 단일 화자","device":"Apple M1 CPU · PyTorch 4 threads","url":"https://huggingface.co/facebook/mms-tts-kor","license":"CC BY-NC 4.0"}
+  {
+    "id": "supertonic3",
+    "name": "Supertonic 3",
+    "voice": "F1 · 8 steps · speed 1.0",
+    "device": "Apple M1 CPU · ONNX Runtime",
+    "url": "https://huggingface.co/supertone-oss-archive/supertonic-3",
+    "license": "OpenRAIL-M"
+  },
+  {
+    "id": "mms",
+    "name": "MMS Korean",
+    "voice": "kor · 기본 단일 화자",
+    "device": "Apple M1 CPU · PyTorch 4 threads",
+    "url": "https://huggingface.co/facebook/mms-tts-kor",
+    "license": "CC BY-NC 4.0"
+  },
+  {
+    "id": "eleven-sarah",
+    "name": "Eleven Multilingual v2",
+    "voice": "Sarah · 기본 설정",
+    "device": "ElevenLabs API · 요청부터 전체 MP3 수신까지",
+    "url": "https://elevenlabs.io/",
+    "license": "ElevenLabs Free · 비상업 · 출처 표기",
+    "revision": "eleven_multilingual_v2 · 2026-11-05 · EXAVITQu4vr4xnSDxMaL",
+    "publication_basis": "직접 생성한 원고·premade 보이스. 비상업 연구 공개 및 elevenlabs.io 출처 표기. https://elevenlabs.io/terms-of-use"
+  }
 ]
