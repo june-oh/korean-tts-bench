@@ -1,6 +1,6 @@
 const el=id=>document.getElementById(id);
 const n=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e};
-async function read(path){const response=await fetch(path);if(!response.ok)throw new Error(path);return response.json()}
+async function read(path){const response=await fetch(path,{cache:"no-cache"});if(!response.ok)throw new Error(path);return response.json()}
 const sections=[
  ["숫자와 한글 표기의 대조",["P13","P16","P01","P02","P03","P04","P09","P12"]],
  ["영문 혼용과 장문 안내",["P14","P15","P08"]],
@@ -40,7 +40,7 @@ try{
     for(const [i,m] of order.entries()){
      const cell=row.insertCell(),r=m.byId.get(id);
      if(!r){cell.textContent="미측정";continue}
-     const a=n("audio");a.controls=true;a.preload="none";a.src="audio/"+m.id+"/"+id+".wav";
+     const a=n("audio");a.controls=true;a.preload="none";a.src="audio/"+m.id+"/"+id+".wav?v=research16";
      a.setAttribute("aria-label",id+" "+(blind?"음성 "+String.fromCharCode(65+i):m.name));
      a.onplay=()=>document.querySelectorAll("audio").forEach(other=>{if(other!==a)other.pause()});
      cell.append(a);
