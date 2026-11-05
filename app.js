@@ -40,10 +40,20 @@ try{
     for(const [i,m] of order.entries()){
      const cell=row.insertCell(),r=m.byId.get(id);
      if(!r){cell.textContent="미측정";continue}
-     const a=n("audio");a.controls=true;a.preload="none";a.src="audio/"+m.id+"/"+id+".wav?v=research16";
+     const a=n("audio");a.controls=true;a.preload=id==="P13"?"metadata":"none";
+     const mp3="listen/"+m.id+"/"+id+".mp3", wav="audio/"+m.id+"/"+id+".wav";
+     for(const [url,type] of [[mp3,"audio/mpeg"],[wav,"audio/wav"]]){
+      const source=n("source");source.src=url;source.type=type;a.append(source);
+     }
      a.setAttribute("aria-label",id+" "+(blind?"음성 "+String.fromCharCode(65+i):m.name));
      a.onplay=()=>document.querySelectorAll("audio").forEach(other=>{if(other!==a)other.pause()});
      cell.append(a);
+     const links=n("div",undefined,"filelinks");
+     for(const [url,label] of [[mp3,"MP3 직접 듣기"],[wav,"원본 WAV"]]){
+      const link=n("a",label);link.href=url;link.target="_blank";link.rel="noopener";
+      link.setAttribute("aria-label",a.getAttribute("aria-label")+" "+label);links.append(link);
+     }
+     cell.append(links);
      if(!blind){const value=r.seconds[0];cell.append(n("p",(value?("생성 "+value.toFixed(2)+"초 · RTF "+(value/r.duration).toFixed(2)):"생성 미측정")+" · 길이 "+r.duration.toFixed(2)+"초","meta"))}
     }
    }
