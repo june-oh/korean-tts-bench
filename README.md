@@ -22,6 +22,23 @@ ElevenLabs 음성은 **elevenlabs.io**에서 Free 플랜으로 직접 생성한 
 
 [원문과 청취 포인트](prompts.json) · [모델 사양](models.json) · [합성 스크립트](scripts/generate.py)
 
+## 문장별 성능 그래프
+
+[그래프 보기](https://june-oh.github.io/korean-tts-bench/#timing) · [측정 CSV](figures/timings.csv). 저장소 루트에서 matplotlib와 numpy가 설치된 Python으로 `python scripts/plot_timings.py`를 실행한다. 한 점은 게시한 첫 시도의 측정값이고 마름모는 성공 문장의 단순 산술평균이다. 범위는 전체 최솟값~최댓값이다. RTF는 각 문장의 생성 시간을 그 문장의 원본 WAV 길이로 나눈 뒤 평균한다. CPU·GPU·네트워크 API가 섞여 있으며, 초회 모델 로드와 MP3 변환은 제외했다.
+
+## 추가한 상업 이용 후보
+
+| 후보 | 실제 시험 | 이용 조건과 선택 근거 |
+|---|---|---|
+| OpenBMB VoxCPM2 | 기본 생성 음성, BF16 스트리밍, CFG 2.0, 10 steps, 참조 음성·텍스트 정규화·재시도·torch.compile 비활성화. 예열 후 문장당 1회. | 코드·공식 가중치 Apache 2.0. 모델 카드가 한국어 및 상업 이용을 명시한다. 조회 당시 HF 최근 월간 다운로드 962,916회, GitHub 프로젝트 별 41,060개. [모델 카드](https://huggingface.co/openbmb/VoxCPM2) · [코드](https://github.com/OpenBMB/VoxCPM) |
+| MyShell MeloTTS Korean | 기본 화자 KR, GPU FP32, speed 1.0. 예열 후 1회. P07 자모 ㄹ에서 KeyError로 실패해 그래프에는 성공한 15문장만 포함했다. | 코드·체크포인트 MIT. 한국어 전처리의 kykim/bert-kor-base는 배포 프로젝트에 Apache 2.0과 별도 상업 MOU 안내가 함께 있어 확인 필요. HF 한국어 체크포인트 최근 월간 다운로드 84,815회, GitHub 프로젝트 별 7,695개. [모델 카드](https://huggingface.co/myshell-ai/MeloTTS-Korean) · [코드](https://github.com/myshell-ai/MeloTTS) · [BERT 배포자](https://github.com/kiyoungkim1/LMkor) |
+
+사용 지표는 2026-11-05 조회 당시 스냅샷이며 다운로드에 중복이 포함될 수 있다. 회사 제품에는 VoxCPM2와 기존 Qwen3-TTS(공식 체크포인트 Apache 2.0)를 먼저 검토할 수 있다. OmniVoice는 [가중치 라이선스](https://huggingface.co/k2-fsa/OmniVoice#license)가 CC-BY-NC여서 상업 후보에서 제외했다.
+
+두 추가 모델은 RTX PRO 6000 Blackwell Server Edition GPU 각각 1장에서 측정했다. VoxCPM2의 첫 오디오 시간은 호출부터 CPU로 반환된 첫 비어 있지 않은 PCM 청크까지이며 사용자 기기의 재생 버퍼는 제외한다. 전체 스트림을 이어 붙여 게시한 파일과 같은 실행에서 측정했다. [합성 코드](scripts/generate_voxcpm2.py) · [첫 오디오 원시 기록](audio/voxcpm2/first_audio.json). voxcpm==2.0.3, PyTorch 2.9.1+cu128.
+
+MeloTTS는 공식 코드 커밋 `209145371cff8fc3bd60d7be902ea69cbdb7965a`에 [한국어 모듈만 로드하는 패치](scripts/melotts-kr-imports.patch)를 적용했다. 공식 KR 전처리·BERT·기본 추론 설정을 사용했다. [실행 코드](scripts/generate_melo.py).
+
 ## 비용과 공개 조건
 
 2026-11-05 기준. 일반 음성 파일 이용권, API 성능 비교 허가, 목소리 권리는 각각 확인한다. 공식 데모 녹음·타인의 복제 음성은 사용하지 않았다. 가중치는 이 저장소에 배포하지 않는다.

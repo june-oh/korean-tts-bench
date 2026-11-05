@@ -34,5 +34,28 @@
     "license": "Apache 2.0",
     "revision": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice@0c0e3051f131929182e2c023b9537f8b1c68adfe",
     "publication_basis": "공식 Apache 2.0 체크포인트와 내장 프리셋 Sohee를 사용해 직접 작성한 원고를 온프레미스에서 합성. https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"
+  },
+  {
+    "id": "melo-kr",
+    "name": "MeloTTS Korean",
+    "voice": "KR · 기본 프리셋 · speed 1.0",
+    "device": "RTX PRO 6000 Blackwell · FP32",
+    "url": "https://huggingface.co/myshell-ai/MeloTTS-Korean",
+    "license": "Melo MIT · BERT 배포자 상업 MOU 안내",
+    "revision": "myshell-ai/MeloTTS-Korean@0207e5adfc90129a51b6b03d89be6d84360ed323",
+    "publication_basis": "직접 작성한 텍스트와 기본 화자로 생성한 비상업 연구 데모. Melo 체크포인트 MIT. 보조 모델의 상업 이용은 https://github.com/kiyoungkim1/LMkor 확인.",
+    "failures": {
+      "P07": "합성 실패 · 자모 ㄹ 처리 오류"
+    }
+  },
+  {
+    "id": "voxcpm2",
+    "name": "VoxCPM2",
+    "voice": "기본 생성 음성 · 참조 음성 없음",
+    "device": "RTX PRO 6000 Blackwell · BF16 · 스트리밍",
+    "url": "https://huggingface.co/openbmb/VoxCPM2",
+    "license": "Apache 2.0",
+    "revision": "openbmb/VoxCPM2@32279effe8c19989596f05d353d1447f51d9e915",
+    "publication_basis": "공식 Apache 2.0 체크포인트, 직접 작성한 원문, 참조 음성 없이 한국어로 생성. https://huggingface.co/openbmb/VoxCPM2#license"
   }
 ]

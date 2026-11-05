@@ -39,7 +39,7 @@ try{
     th.append(ref);row.append(th);
     for(const [i,m] of order.entries()){
      const cell=row.insertCell(),r=m.byId.get(id);
-     if(!r){cell.textContent="미측정";continue}
+     if(!r){cell.textContent=m.failures?.[id] || "미측정";continue}
      const a=n("audio");a.controls=true;a.preload=id==="P13"?"metadata":"none";
      const mp3="listen/"+m.id+"/"+id+".mp3", wav="audio/"+m.id+"/"+id+".wav";
      for(const [url,type] of [[mp3,"audio/mpeg"],[wav,"audio/wav"]]){
