@@ -35,6 +35,10 @@ ElevenLabs 음성은 **elevenlabs.io**에서 Free 플랜으로 직접 생성한 
 | Typecast SSFM | 같은 3회 시험 1,623크레딧. Lite 월 $15/20만 크레딧을 전량 소진한다고 보면 약 $0.122 상당. **허가 전 실행 보류** | API 약관에서 벤치마킹·경쟁 목적 성능/기능 모니터링을 제한. 유료 구독만으로 해결되지 않으므로 이 프로젝트의 음원 및 측정 결과 공개까지 서면 허가 후 추가. [API 약관 제3조 제한 사항](https://help.typecast.ai/en/articles/11872662-typecast-api-terms-of-use) · [요금](https://typecast.ai/pricing/api/) |
 | Google Cloud TTS | 모델별 문자·토큰 단가, 무료 사용량·리전 확인 후 계산 | 서비스 약관 General Service Terms §7에서 고객 직접 시험, 재현 정보 제공, Google의 상응 시험·공개 허용 조건을 규정한다. 적용 계약·조항 확인 후 추가. [약관](https://cloud.google.com/terms/service-terms) · [요금](https://cloud.google.com/text-to-speech/pricing) |
 
+## Qwen3-TTS 온프레미스 실행
+
+공식 [Qwen3-TTS-12Hz-1.7B-CustomVoice](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice)를 NVIDIA RTX PRO 6000 Blackwell Server Edition 1장으로 직접 실행했다. BF16, SDPA, 언어 Korean, 기본 화자 Sohee, qwen-tts 0.1.1을 사용했다. 별도 1문장으로 예열하고 동일한 16문장을 각각 1회 생성했다. 타이머는 CUDA 동기화를 포함하고 파일 저장은 제외한다. API 호출료는 없으며 GPU 전력·설비 비용은 별도다. 다른 로컬 모델의 M1 CPU 결과와 장비가 다르다. [재현 스크립트](scripts/generate_qwen.py) · [원시 시간과 가중치 리비전](audio/qwen3-tts-1p7b/measurements.json)
+
 ## 음원 추가하기
 
 1. [prompts.json](prompts.json)의 원문을 그대로 넣어 합성한다. 저장소 밖 별도 디렉터리에 P01.wav … P16.wav로 보관한다. 부분 제출도 가능하다. 직접 녹음·생성했는지와 공개 권한을 확인한다.

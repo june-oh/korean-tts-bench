@@ -24,5 +24,15 @@
     "license": "ElevenLabs Free · 비상업 · 출처 표기",
     "revision": "eleven_multilingual_v2 · 2026-11-05 · EXAVITQu4vr4xnSDxMaL",
     "publication_basis": "직접 생성한 원고·premade 보이스. 비상업 연구 공개 및 elevenlabs.io 출처 표기. https://elevenlabs.io/terms-of-use"
+  },
+  {
+    "id": "qwen3-tts-1p7b",
+    "name": "Qwen3-TTS 1.7B",
+    "voice": "CustomVoice · Sohee · Korean",
+    "device": "RTX PRO 6000 Blackwell Server Edition 1장 · BF16 · SDPA",
+    "url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+    "license": "Apache 2.0",
+    "revision": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice@0c0e3051f131929182e2c023b9537f8b1c68adfe",
+    "publication_basis": "공식 Apache 2.0 체크포인트와 내장 프리셋 Sohee를 사용해 직접 작성한 원고를 온프레미스에서 합성. https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"
   }
 ]
