@@ -5,7 +5,8 @@
     "voice": "F1 · 8 steps · speed 1.0",
     "device": "Apple M1 CPU · ONNX Runtime",
     "url": "https://huggingface.co/supertone-oss-archive/supertonic-3",
-    "license": "OpenRAIL-M"
+    "license": "OpenRAIL-M",
+    "access": "open"
   },
   {
     "id": "mms",
@@ -13,17 +14,19 @@
     "voice": "kor · 기본 단일 화자",
     "device": "Apple M1 CPU · PyTorch 4 threads",
     "url": "https://huggingface.co/facebook/mms-tts-kor",
-    "license": "CC BY-NC 4.0"
+    "license": "CC BY-NC 4.0",
+    "access": "open"
   },
   {
     "id": "eleven-sarah",
-    "name": "Eleven Multilingual v2",
-    "voice": "Sarah · 기본 설정",
+    "name": "ElevenLabs Multilingual v2",
+    "voice": "Sarah · 영어(미국) 프리셋",
     "device": "ElevenLabs API · 요청부터 전체 MP3 수신까지",
     "url": "https://elevenlabs.io/",
     "license": "ElevenLabs Free · 비상업 · 출처 표기",
     "revision": "eleven_multilingual_v2 · 2026-11-05 · EXAVITQu4vr4xnSDxMaL",
-    "publication_basis": "직접 생성한 원고·premade 보이스. 비상업 연구 공개 및 elevenlabs.io 출처 표기. https://elevenlabs.io/terms-of-use"
+    "publication_basis": "직접 생성한 원고·premade 보이스. 비상업 연구 공개 및 elevenlabs.io 출처 표기. https://elevenlabs.io/terms-of-use",
+    "access": "closed"
   },
   {
     "id": "qwen3-tts-1p7b",
@@ -33,7 +36,8 @@
     "url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
     "license": "Apache 2.0",
     "revision": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice@0c0e3051f131929182e2c023b9537f8b1c68adfe",
-    "publication_basis": "공식 Apache 2.0 체크포인트와 내장 프리셋 Sohee를 사용해 직접 작성한 원고를 온프레미스에서 합성. https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"
+    "publication_basis": "공식 Apache 2.0 체크포인트와 내장 프리셋 Sohee를 사용해 직접 작성한 원고를 온프레미스에서 합성. https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+    "access": "open"
   },
   {
     "id": "melo-kr",
@@ -46,7 +50,8 @@
     "publication_basis": "직접 작성한 텍스트와 기본 화자로 생성한 비상업 연구 데모. Melo 체크포인트 MIT. 보조 모델의 상업 이용은 https://github.com/kiyoungkim1/LMkor 확인.",
     "failures": {
       "P07": "합성 실패 · 자모 ㄹ 처리 오류"
-    }
+    },
+    "access": "open"
   },
   {
     "id": "voxcpm2",
@@ -56,6 +61,7 @@
     "url": "https://huggingface.co/openbmb/VoxCPM2",
     "license": "Apache 2.0",
     "revision": "openbmb/VoxCPM2@32279effe8c19989596f05d353d1447f51d9e915",
-    "publication_basis": "공식 Apache 2.0 체크포인트, 직접 작성한 원문, 참조 음성 없이 한국어로 생성. https://huggingface.co/openbmb/VoxCPM2#license"
+    "publication_basis": "공식 Apache 2.0 체크포인트, 직접 작성한 원문, 참조 음성 없이 한국어로 생성. https://huggingface.co/openbmb/VoxCPM2#license",
+    "access": "open"
   }
 ]

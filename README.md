@@ -59,11 +59,11 @@ MeloTTS는 공식 코드 커밋 `209145371cff8fc3bd60d7be902ea69cbdb7965a`에 [�
 ## 음원 추가하기
 
 1. [prompts.json](prompts.json)의 원문을 그대로 넣어 합성한다. 저장소 밖 별도 디렉터리에 P01.wav … P16.wav로 보관한다. 부분 제출도 가능하다. 직접 녹음·생성했는지와 공개 권한을 확인한다.
-2. 같은 디렉터리에 아래 예시의 model.json을 만들고 실제 값으로 바꾼다. times.json은 선택 사항이다. 측정 기록이 없으면 생략한다. 파일의 재생 길이로 생성 시간을 추정하지 않는다.
+2. 같은 디렉터리에 아래 예시의 model.json을 만들고 실제 값으로 바꾼다. access는 공개 가중치인 경우 open, 독점 서비스인 경우 closed로 설정한다. times.json은 선택 사항이다. 측정 기록이 없으면 생략한다. 파일의 재생 길이로 생성 시간을 추정하지 않는다.
 3. 저장소 루트에서 아래 명령을 실행하고, 변경된 JSON과 추가 음원만 검토해 main에 커밋·푸시한다. GitHub Pages가 갱신된다.
 
 ```json
-{"id":"my-run","name":"모델명","voice":"프리셋·설정","device":"기기 또는 API 리전·시간 측정 범위","url":"https://example.org/model","license":"약관명","revision":"모델 버전·날짜","publication_basis":"직접 생성, 플랜, 출처 및 공개 근거 링크"}
+{"id":"my-run","access":"open","name":"모델명","voice":"프리셋·설정","device":"기기 또는 API 리전·시간 측정 범위","url":"https://example.org/model","license":"약관명","revision":"모델 버전·날짜","publication_basis":"직접 생성, 플랜, 출처 및 공개 근거 링크"}
 ```
 
 ```sh

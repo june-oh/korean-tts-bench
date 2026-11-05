@@ -15,6 +15,8 @@ meta = json.loads((folder / "model.json").read_text())
 fields = ["id", "name", "voice", "device", "url", "license", "revision", "publication_basis"]
 if not all(isinstance(meta.get(k), str) and meta[k].strip() for k in fields):
     p.error("model.json is missing provenance or publication terms")
+if meta.get("access") not in {"open", "closed"}:
+    p.error("set access to open (public weights) or closed (proprietary service)")
 key = meta["id"]
 if not re.fullmatch(r"[a-z0-9][a-z0-9-]*", key):
     p.error("invalid model id")
