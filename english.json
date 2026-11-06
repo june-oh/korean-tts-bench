@@ -1,0 +1,28 @@
+{
+ "prompts":{
+  "P01":["Counters","Two people shared two apples and met again in room 2 on the second floor.","Listen for native numerals with apples and people, and Sino-Korean numerals with floor and room numbers."],
+  "P02":["Month names","We open every Monday from June 6 to October 10.","June and October have special spoken forms, 유월 and 시월. Compare the following day numbers."],
+  "P03":["Currency and percentages","We offer a 12.5% discount on the total of 17,350 won.","Check the place values and the five after the decimal point."],
+  "P04":["Fractions and units","Pour in three quarters of a cup of water, then 0.25 L of milk.","Korean reads a fraction denominator-first. Compare it with the decimal reading."],
+  "P05":["Sound changes","We moved the flower petals and perilla leaves in the kitchen together.","Listen for the inserted nasal in 꽃잎 and 깻잎, and palatalization in 같이."],
+  "P06":["Homographs","The responder received a report, put on new shoes, and ran.","Compare 신고 meaning ‘report’ with 신고 meaning ‘wearing’; listen for consonant tensification."],
+  "P07":["Letter names","In the first syllable of ‘strawberry’, the initial is ㄸ and the final is ㄹ.","Check whether the letter names ssang-digeut and rieul are spoken."],
+  "P08":["Embedded English","Plug in the USB-C cable and open the PDF file.","Listen for dropped letters or abrupt changes in pace around the acronyms."],
+  "P09":["Extensions and times","Call extension 007 at 3:05 p.m.","Check both leading zeros and the distinction between hours and minutes."],
+  "P10":["Repetition and correction","Strawberries, wild strawberries, strawberry jam. No, the last one is strawberry syrup.","Listen for skipped repetitions and the intonation of the correction."],
+  "P11":["Question intonation","You’re leaving now? You’re leaving now. Same words, but they sound quite different, don’t they?","Compare the endings of the question and the statement."],
+  "P12":["Counts, floors, and routes","Three eleven-year-olds waited on the eleventh floor for bus number 11.","Compare the numeral forms for age, people, floors, and bus routes."],
+  "P13":["Identifier and quantity","The order number is 0042 and the quantity is 42 items.","The identifier retains two leading zeros. The second number denotes a quantity."],
+  "P14":["Flight and gate codes","The gate for flight KR407 has changed from B12 to B21.","Check letters and digits as well as the direction of the gate change."],
+  "P15":["Long announcement","Your train was due to leave at 9:15 a.m. Track inspections have pushed departure back to 9:50 a.m. Please use the time just announced instead of the time in the earlier message.","Listen for both times and a complete second sentence without skips or repetitions."],
+  "P16":["Spelled-out control","The order number is zero-zero-four-two and the quantity is forty-two items.","Compare P13. The meaning is held constant while the numbers are spelled out in Hangul."]
+ },
+ "models":{
+  "supertonic3":["F1 · 8 steps · speed 1.0","Apple M1 CPU · ONNX Runtime","OpenRAIL-M"],
+  "mms":["Default single Korean voice","Apple M1 CPU · PyTorch, 4 threads","CC BY-NC 4.0"],
+  "eleven-hoon":["Hoon · standard Korean male narrator","ElevenCreative web · time not measured","ElevenLabs Free · non-commercial, attribution required"],
+  "qwen3-tts-1p7b":["Sohee · Korean CustomVoice preset","1 × RTX PRO 6000 Blackwell · BF16 · SDPA","Apache 2.0"],
+  "melo-kr":["KR preset · speed 1.0","RTX PRO 6000 Blackwell · FP32","MIT · Korean BERT distributor requests a commercial MOU"],
+  "voxcpm2":["Generated voice · no reference audio","RTX PRO 6000 Blackwell · BF16 · streaming","Apache 2.0"]
+ }
+}
