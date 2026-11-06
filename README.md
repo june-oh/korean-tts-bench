@@ -10,6 +10,14 @@
 
 [KO-TTS Arena의 공개 문장](https://huggingface.co/spaces/channelcorp/KO-TTS-Arena/blob/30278887183752f87eae32811a807651845f886c/ko_prompts.json)에서 상품 코드·가격, 주문번호, 전화, 영문 혼용 안내 유형을 확인했다. [CoreaSpeech 논문](https://openreview.net/forum?id=8nHq0IIwpd)과 [저자 샘플](https://coreaspeech.github.io/demo/)에서 숫자·영문 정규화 및 numeric 시험셋을 검토했다. 기존 12문장을 이 기준으로 분류하고 번호·수량 대조, 편명, 긴 시각 변경 안내, 한글 정규화 대조군을 새로 작성했다. 원본 데이터셋 문장을 복제하거나 이 데모에서 원 논문의 성능을 재현했다고 주장하지 않는다.
 
+## 메모리 측정
+
+[그래프와 표](https://june-oh.github.io/korean-tts-bench/#memory) · [원자료 (bytes)](figures/memory.json) · [측정 스크립트](scripts/profile_memory.py)
+
+2026-11-06, 공개한 원고와 기존 합성기를 사용해 모델별로 새 프로세스에서 재실행했다. 로딩부터 예열과 마지막 문장까지의 프로세스 최대 RSS를 기록했으며, GPU 모델은 PyTorch의 최대 할당량과 최대 예약량도 기록했다. 각각의 최고점이므로 더하지 않는다. 단일 요청 조건이며, 운영 서버 전체 사용량이나 동시 요청 시 필요한 최소 VRAM은 이 실험으로 결정할 수 없다. ElevenLabs 서버 내부 사용량은 관측할 수 없다.
+
+재현 시 기존 음원 디렉터리와 분리한 작업 폴더에서 원래 합성 명령의 Python 진입점을 감싼다. 예: `python /repo/scripts/profile_memory.py memory.json cuda /repo/scripts/generate_qwen.py /weights /repo/prompts.json ./result`. CPU는 `cpu`를 지정한다. 그래프는 저장소 루트에서 `python scripts/plot_memory.py`로 만든다.
+
 ## 측정 방법
 
 2026-11-05, Apple M1 CPU. 모델을 메모리에 올리고 별도 문장으로 한 번 예열했다. 원문을 수정하거나 숫자를 읽는 방법을 미리 써 주지 않았다. 로컬 모델이 제공하는 전처리부터 전체 파형을 얻을 때까지 단조 시계로 3회 독립 측정했다. 동시 요청 1, 두 로컬 모델을 순차 실행했다. 로컬 모델 로딩·WAV 저장·브라우저 다운로드 시간은 제외했다. 사이트에는 각 문장의 **첫 번째 시도 음원 및 해당 시도 시간**을 표시한다. RTF는 그 시간 ÷ 해당 WAV 길이다. 서로 다른 기본 화자와 모델별 전처리도 결과에 영향을 준다. 원본 WAV는 음량 후처리나 실패 샘플 재선정 없이 보존한다. 기본 플레이어의 청취용 MP3는 파일별 고정 게인으로 −18 LUFS를 목표로 맞추되 인코딩 전 피크가 −2 dBTP를 넘지 않도록 제한한다. 듣기용 변환 시간은 생성 시간에서 제외했다. 적용 게인은 listen/모델ID/levels.json에 기록된다.

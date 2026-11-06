@@ -1,0 +1,63 @@
+{
+  "scope": "Separate replay; fresh process per model, from startup through loading, warm-up and full prompt suite. Peaks, not per-prompt means.",
+  "unit": "bytes",
+  "models": [
+    {
+      "id": "supertonic3",
+      "name": "Supertonic 3",
+      "device": "Apple M1 CPU · ONNX Runtime",
+      "process_peak_rss_bytes": 571113472,
+      "attempted_prompts": 16,
+      "successful_prompts": 16,
+      "trials_per_prompt": 3
+    },
+    {
+      "id": "mms",
+      "name": "MMS Korean",
+      "device": "Apple M1 CPU · PyTorch 4 threads",
+      "process_peak_rss_bytes": 1168539648,
+      "attempted_prompts": 16,
+      "successful_prompts": 16,
+      "trials_per_prompt": 3
+    },
+    {
+      "id": "eleven-hoon",
+      "name": "ElevenLabs Multilingual v2",
+      "device": "ElevenCreative 웹 · 합성 시간 미측정",
+      "status": "provider-side memory unavailable"
+    },
+    {
+      "id": "qwen3-tts-1p7b",
+      "name": "Qwen3-TTS 1.7B",
+      "device": "RTX PRO 6000 Blackwell Server Edition 1장 · BF16 · SDPA",
+      "cuda_allocated_bytes": 4637925888,
+      "cuda_reserved_bytes": 4959764480,
+      "process_peak_rss_bytes": 4839989248,
+      "attempted_prompts": 16,
+      "successful_prompts": 16,
+      "trials_per_prompt": 1
+    },
+    {
+      "id": "melo-kr",
+      "name": "MeloTTS Korean",
+      "device": "RTX PRO 6000 Blackwell · FP32",
+      "cuda_allocated_bytes": 898845184,
+      "cuda_reserved_bytes": 1000341504,
+      "process_peak_rss_bytes": 2424721408,
+      "attempted_prompts": 16,
+      "successful_prompts": 15,
+      "trials_per_prompt": 1
+    },
+    {
+      "id": "voxcpm2",
+      "name": "VoxCPM2",
+      "device": "RTX PRO 6000 Blackwell · BF16 · 스트리밍",
+      "cuda_allocated_bytes": 5748945920,
+      "cuda_reserved_bytes": 5955911680,
+      "process_peak_rss_bytes": 11618365440,
+      "attempted_prompts": 16,
+      "successful_prompts": 16,
+      "trials_per_prompt": 1
+    }
+  ]
+}
